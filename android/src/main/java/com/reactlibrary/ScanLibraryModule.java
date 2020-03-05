@@ -12,6 +12,9 @@ import com.facebook.react.bridge.Callback;
 
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 
+import android.os.Build;
+import android.util.Log;
+
 public class ScanLibraryModule extends ReactContextBaseJavaModule {
     public static final String m_Broadcastname = "com.barcode.sendBroadcast";
     private final ReactApplicationContext reactContext;
@@ -22,6 +25,7 @@ public class ScanLibraryModule extends ReactContextBaseJavaModule {
         final IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(m_Broadcastname);
         reactContext.registerReceiver(receiver, intentFilter);
+        Log.d("library", Build.BRAND.toLowerCase());
     }
 
     @Override
@@ -48,4 +52,10 @@ public class ScanLibraryModule extends ReactContextBaseJavaModule {
           }
         }
     };
+
+    @ReactMethod
+    public boolean isCompatible() {
+        return Build.BRAND.toLowerCase().contains("itos");
+    }
+
 }
