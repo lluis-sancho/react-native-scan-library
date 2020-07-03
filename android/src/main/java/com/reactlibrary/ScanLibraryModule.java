@@ -55,6 +55,7 @@ public class ScanLibraryModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public boolean isCompatible() {
+        Log.d("library", Build.BRAND.toLowerCase().contains("itos"));
         return Build.BRAND.toLowerCase().contains("itos");
     }
 
