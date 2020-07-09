@@ -13,7 +13,9 @@ import com.facebook.react.bridge.JavaScriptModule;
 public class ScanLibraryPackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        return Arrays.<NativeModule>asList(new ScanLibraryModule(reactContext));
+      List<NativeModule> modules = new ArrayList<>();
+      modules.add(new ScanLibraryModule(reactContext));
+      return modules;
     }
 
     @Override
