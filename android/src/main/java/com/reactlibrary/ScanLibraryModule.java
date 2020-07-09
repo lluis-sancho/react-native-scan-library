@@ -56,7 +56,6 @@ public class ScanLibraryModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void isCompatible( Callback errorCallback, Callback successCallback) {
-        Log.d("library", Build.BRAND.toLowerCase().contains("itos"));
         try{
           successCallback.invoke(Build.BRAND.toLowerCase().contains("itos"));
         } catch (IllegalViewOperationException e) {
